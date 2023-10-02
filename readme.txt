@@ -1,0 +1,1 @@
+An ASCII art generator which can output both colour and greyscale images. Font, font size, contrast, brightness, image size, etc. are all changeable.
