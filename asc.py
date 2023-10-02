@@ -45,7 +45,7 @@ class AsciiConverter:
         luminance = self.__convert_pixels_to_luminance(self.pixels)
         if force_all_characters == True:
             luminance = luminance / max(luminance)
-        indexes = np.around(luminance * (len(self.__chars) - 1)).astype(np.int32)
+        indexes = np.around(luminance * (len(chars) - 1)).astype(np.int32)
         indexes = np.split(indexes, len(indexes) / self.image_data.width)
 
         # create new image
@@ -71,14 +71,16 @@ class AsciiConverter:
         target.show()
 
     # generates a colour ascii art version of the current image
-    def generate_colour_ascii(self):
+    def generate_colour_ascii(self, force_all_characters=False):
         if self.__custom_chars != None:
             chars = self.__custom_chars
         else:
             chars = self.__colour_chars
 
         luminance = self.__convert_pixels_to_luminance(self.pixels)
-        indexes = np.around(luminance * (len(self.__colour_chars) - 1)).astype(np.int32)
+        if force_all_characters == True:
+            luminance = luminance / max(luminance)
+        indexes = np.around(luminance * (len(chars) - 1)).astype(np.int32)
         indexes = np.split(indexes, len(indexes) / self.image_data.width)
 
         # create new image
