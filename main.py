@@ -21,7 +21,7 @@ def main():
     for i, arg in enumerate(sys.argv):
         match arg:
             case "-s":
-                scale = int(sys.argv[i + 1])
+                scale = float(sys.argv[i + 1])
             case "-f":
                 font = sys.argv[i + 1]
             case "-fs":
